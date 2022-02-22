@@ -1,0 +1,386 @@
+/* ### GLOBAL */
+/* :root {
+  --dark-blue: #363f5f;
+  --dark-green: #49aa26;
+  --light-green: #3dd705;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 93.75%; /*  = 15px */
+}
+
+body {
+  /* background: #f0f0f0; */
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+/* Trcik/Truque CSS para esconder o elemento com css para não sumir com o elemento de fato para fim de acessibilidade/leitores de tela
+Site de dicas css: https://css-tricks.com/*/
+.sr-only {
+  position: absolute; /* coloca o elemento a frente em posição absoluta */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  /* Procura o menor valor e seta no container */
+  width: min(90vw, 800px);
+  margin: auto;
+}
+
+
+/* ### TITLES */
+h2 {
+  margin: 3.2rem 0 0.8rem 0;
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+/* LINKS E BOTÕES */
+
+a {
+  color: var(--dark-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--light-green);
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: #fff;
+  background-color: var(--dark-green);
+  padding: 0;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--light-green);
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+  color: red;
+  border: 1px red solid;
+  border-radius: .25rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.button.cancel:hover {
+  opacity: 1;
+}
+
+.btn-remove:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* #### HEADER */
+header {
+  background: var(--dark-green);
+  padding: 2rem 2rem 10rem 2rem;
+  text-align: center;
+}
+
+#logo {
+  color: #fff;
+  font-weight: 100;
+}
+
+#logo:hover {
+  color: black;
+  font-weight: 100;
+  /* opacity: 0.6; */
+  cursor: alias;
+}
+
+/* ### BALANCE */
+
+#balance {
+  margin-top: -6rem;
+}
+
+#balance h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+/* ### CARDS */
+
+.card {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  color: var(--dark-blue);
+}
+
+.card h3 {
+  font-weight: 300;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card p {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+
+.card.total {
+  background: var(--light-green);
+  color: #fff;
+}
+
+/* ### TABLE */
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+#transactions {
+  /* Na sequência, como fazer um elemento rolar no eixo x sozinho */
+  display: block;
+  width: 100%;
+  overflow-x: auto; /* Transbordando */
+}
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  font-weight: normal;
+}
+
+table thead th {
+  background: #fff;
+  padding: 0.8rem;
+  text-align: start;
+  opacity: 0.6;
+}
+
+table tbody tr {
+  opacity: 1;
+}
+
+table tbody tr:hover {
+  opacity: 0.6;
+}
+
+table td {
+  background: #fff;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+}
+
+td.description {
+  color: var(--dark-blue);
+}
+
+td.income {
+  color: green;
+}
+
+td.expense {
+  color: red;
+}
+
+/* MODAL =============================== */
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f0f2f5;
+  padding: 2.4rem;
+  width: 90%;
+  max-width: 500px;
+  
+}
+
+/* FORM ================= */
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+#form form input {
+  border: none;
+  border-radius: .2rem;
+  padding: .8rem;
+  width: 100%;
+}
+
+.input-group {
+  margin-top: .8rem;
+}
+
+.input-group small {
+  opacity: .4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.input-group.actions .button,
+.input-group.input-group.actions button{
+  width: 48%;
+}
+
+
+/* ### FOOTER */
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--dark-green);
+  font-size: 1.5rem;
+}
+
+/* RESPONSIVE ===================== */
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+  
+  #balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: repeat(3, 1fr); */
+    gap: 2rem;
+  }
+}
+
+/* ###### THEME ###################################3 */
+.theme-light {
+  --dark-blue: #363f5f;
+  --dark-green: #397d21;
+  --light-green: #4aa02a;
+  background: #f0f0f0;
+}
+.theme-dark {
+  --dark-blue: #363f5f;
+  --dark-green: #235013;
+  --light-green: #304728;
+  background: #f0f0f0;
+}
+
+.toggle {
+  margin-top: 13px;
+  text-align: right;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(40px);
+  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
